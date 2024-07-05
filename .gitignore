@@ -1,0 +1,7 @@
+assets
+ignore
+*.ld
+*.d
+undefined*
+*.n64
+*.z64

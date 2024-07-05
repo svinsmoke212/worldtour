@@ -1,0 +1,213 @@
+name: Wcwvs.Nwo:World Tour (North America)
+sha1: 60814fb3ad2dd206badbeee47c07636357dd0d7e
+options:
+  basename: wcwvs.nwo:worldtour
+  target_path: baserom.z64
+  elf_path: build/wcwvs.nwo:worldtour.elf
+  base_path: .
+  platform: n64
+  compiler: IDO
+
+  # asm_path: asm
+  # src_path: src
+  # build_path: build
+  # create_asm_dependencies: True
+
+  ld_script_path: wcwvs.nwo:worldtour.ld
+  ld_dependencies: True
+
+  find_file_boundaries: True
+  header_encoding: ASCII
+
+  o_as_suffix: True
+  use_legacy_include_asm: False
+  mips_abi_float_regs: o32
+
+  asm_function_macro: glabel
+  asm_jtbl_label_macro: jlabel
+  asm_data_macro: dlabel
+
+  # section_order: [".text", ".data", ".rodata", ".bss"]
+  # auto_all_sections: [".data", ".rodata", ".bss"]
+
+  symbol_addrs_path:
+    - symbol_addrs.txt
+  reloc_addrs_path:
+    - reloc_addrs.txt
+
+  # undefined_funcs_auto_path: undefined_funcs_auto.txt
+  # undefined_syms_auto_path: undefined_syms_auto.txt
+
+  extensions_path: tools/splat_ext
+
+  # string_encoding: ASCII
+  # data_string_encoding: ASCII
+  rodata_string_guesser_level: 2
+  data_string_guesser_level: 2
+  # libultra_symbols: True
+  # hardware_regs: True
+  # gfx_ucode: # one of [f3d, f3db, f3dex, f3dexb, f3dex2]
+segments:
+  - name: header
+    type: header
+    start: 0x0
+
+  - name: boot
+    type: bin
+    start: 0x40
+
+  - name: entry
+    type: code
+    start: 0x1000
+    vram: 0x80000400
+    subsegments:
+      - [0x1000, hasm]
+
+  - name: main
+    type: code
+    start: 0x1050
+    vram: 0x80000450
+    follows_vram: entry
+    bss_size: 0x298A0
+    subsegments:
+      - [0x1050, asm]
+      - [0x16B0, asm]
+      - [0x20B0, asm]
+      - [0x4300, asm]
+      - [0x66E0, asm]
+      - [0x97D0, asm]
+      - [0x9D40, asm]
+      - [0xF1F0, asm]
+      - [0x11CD0, asm]
+      - [0x11ED0, asm]
+      - [0x12160, asm]
+      - [0x122B0, asm]
+      - [0x12590, asm]
+      - [0x126E0, asm]
+      - [0x12710, asm]
+      - [0x12820, asm]
+      - [0x12970, asm]
+      - [0x12A20, asm]
+      - [0x12B00, asm]
+      - [0x12C40, asm]
+      - [0x12CC0, asm]
+      - [0x12D60, asm]
+      - [0x12DA0, asm]
+      - [0x13100, asm]
+      - [0x13170, asm]
+      - [0x13250, asm]
+      - [0x132C0, asm]
+      - [0x134E0, asm]
+      - [0x137D0, asm]
+      - [0x13880, asm]
+      - [0x13D70, asm]
+      - [0x13E10, asm]
+      - [0x14080, asm]
+      - [0x14550, asm]
+      - [0x14760, asm]
+      - [0x147F0, asm]
+      - [0x14800, asm]
+      - [0x14880, asm]
+      - [0x14900, asm]
+      - [0x14960, asm]
+      - [0x149A0, asm]
+      - [0x14C20, asm]
+      - [0x14E70, asm]
+      - [0x160A0, asm]
+      - [0x160E0, asm]
+      - [0x16BA0, asm]
+      - [0x16BE0, asm]
+      - [0x16C20, asm]
+      - [0x16C90, asm]
+      - [0x173A0, asm]
+      - [0x173C0, asm]
+      - [0x17430, asm]
+      - [0x17520, asm]
+      - [0x175B0, asm]
+      - [0x17610, asm]
+      - [0x17670, asm]
+      - [0x176D0, asm]
+      - [0x17740, asm]
+      - [0x177F0, asm]
+      - [0x17800, asm]
+      - [0x182A0, asm]
+      - [0x18310, asm]
+      - [0x18930, asm]
+      - [0x18C00, asm]
+      - [0x18E70, asm]
+      - [0x193C0, asm]
+      - [0x1AA90, asm]
+      - [0x1AC50, asm]
+      - [0x1B260, asm]
+      - [0x1B760, asm]
+      - [0x1B820, asm]
+      - [0x1BDB0, asm]
+      - [0x1BF00, asm]
+      - [0x1C920, asm]
+      - [0x1CBB0, asm]
+      - [0x1D080, asm]
+      - [0x1D2A0, asm]
+      - [0x1D340, asm]
+      - [0x1D500, asm]
+      - [0x1D830, asm]
+      - [0x1D850, asm]
+      - [0x1D900, asm]
+      - [0x1E270, asm]
+      - [0x1E2D0, asm]
+      - [0x1E410, asm]
+      - [0x1E4F0, asm]
+      - [0x1E800, asm]
+      - [0x1EE10, asm]
+      - [0x1F350, asm]
+      - [0x1F360, asm]
+      - [0x1F6C0, asm]
+      - [0x1F6D0, asm]
+      - [0x1F6E0, asm]
+      - [0x1F6F0, asm]
+      - [0x1F730, asm]
+      - [0x1F7C0, asm]
+      - [0x1F7F0, asm]
+      - [0x1F820, asm]
+      - [0x1F8E0, asm]
+      - [0x1F8F0, asm]
+      - [0x21230, asm]
+      - [0x21640, asm]
+      - [0x21790, asm]
+      - [0x21820, asm]
+      - [0x21A50, asm]
+      - [0x21B90, asm]
+      - [0x21C20, asm]
+      - [0x21CC0, asm]
+      - [0x21D50, asm]
+      - [0x22520, asm]
+      - [0x225C0, asm]
+      - [0x23260, asm]
+      - [0x23560, asm]
+      - [0x241C0, asm]
+      - [0x242D0, asm]
+      - [0x24420, asm]
+      - [0x24500, asm]
+      - [0x245B0, asm]
+      - [0x24B50, asm]
+      - [0x24EB0, asm]
+      - [0x25E50, asm]
+      - [0x25E80, asm]
+      - [0x26700, asm]
+      - [0x26800, asm]
+      - [0x26860, asm]
+      - [0x268B0, asm]
+      - [0x26950, asm]
+      - [0x269A0, asm]
+      - [0x269B0, asm]
+      - [0x27060, asm]
+      - [0x27080, asm]
+      - [0x27CD0, asm]
+      - [0x29F50, asm]
+      - [0x2A7F0, asm]
+      - [0x2AA20, data]
+      - { start: 0x39460, type: bss, vram: 0x80038860 }
+
+  - type: bin
+    start: 0x39460
+    follows_vram: main
+  - [0xC00000]
